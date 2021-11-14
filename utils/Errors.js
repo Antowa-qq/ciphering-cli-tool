@@ -14,8 +14,9 @@ class IncorrectConfigError extends ValidationError {
 }
 
 class FileError extends ValidationError {
-  constructor() {
-    super(ERRORS.ERR_FILE_DOES_NOT_EXIST);
+  constructor(path) {
+    super(ERRORS.ERR_FILE_DOES_NOT_EXIST + path);
+    this.path = path;
   }
 }
 

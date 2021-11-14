@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path/posix');
 
 const {
   IncorrectConfigError,
@@ -18,7 +17,11 @@ const validateConfig = (config) => {
   }
 };
 
-const validateFileExist = (filePath) => {};
+const validateFileExist = (filePath) => {
+  if (!fs.existsSync(filePath) && filePath !== null) {
+    throw new FileError(filePath);
+  }
+};
 
 const validateArgs = () => {
   const args = ['-c', '--config', '-i', '--input', '-o', '--output'];
@@ -28,12 +31,12 @@ const validateArgs = () => {
     throw new ArgMissingError('-c, --config');
   }
 
-  if (new Set(processArgs).size !== processArgs.length) {
-    throw new ArgDuplicateError();
-  }
-
   if (!processArgs.every((a) => args.includes(a))) {
     throw new ArgInvalidError(processArgs.filter((a) => !args.includes(a)).join(', '));
+  }
+
+  if (new Set(processArgs).size !== processArgs.length) {
+    throw new ArgDuplicateError();
   }
 };
 

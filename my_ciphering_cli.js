@@ -8,16 +8,17 @@ const { validateConfig, validateFileExist, validateArgs } = require('./validatio
 try {
   validateArgs();
   validateConfig(getConfig(['-c', '--config']).split('-'));
-  // validateFileExist(getConfig(['-i', '--input']));
-  // validateFileExist(getConfig(['-o', '--output']));
+  validateFileExist(getConfig(['-i', '--input']));
+  validateFileExist(getConfig(['-o', '--output']));
 
   const config = getConfig(['-c', '--config']);
   const input = getInput(getConfig(['-i', '--input']));
   const output = getOutput(getConfig(['-o', '--output']));
 
-  pipeline(input, ...getCiphersStreams(config.split('-')), output, (err) => {
-    if (err) {
-      console.error('An error has occurred!', err);
+  pipeline(input, ...getCiphersStreams(config.split('-')), output, (e) => {
+    if (e) {
+      console.log(e.name);
+      console.error('An error has occurred!', e);
     } else {
       console.log('The program has been successfully completed!');
     }
