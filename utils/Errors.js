@@ -31,5 +31,17 @@ class ArgDuplicateError extends ValidationError {
     super(ERRORS.ERR_DUPLICATE_ARGS);
   }
 }
+class ArgInvalidError extends ValidationError {
+  constructor(args) {
+    super(ERRORS.ERR_INVALID_ARG + args);
+    this.args = args;
+  }
+}
 
-module.exports = { IncorrectConfigError, FileError, ArgMissingError, ArgDuplicateError };
+module.exports = {
+  IncorrectConfigError,
+  FileError,
+  ArgMissingError,
+  ArgDuplicateError,
+  ArgInvalidError,
+};

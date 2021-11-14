@@ -4,6 +4,7 @@ const path = require('path/posix');
 const {
   IncorrectConfigError,
   FileError,
+  ArgInvalidError,
   ArgMissingError,
   ArgDuplicateError,
 } = require('../utils/Errors');
@@ -31,8 +32,8 @@ const validateArgs = () => {
     throw new ArgDuplicateError();
   }
 
-  if (new Set(processArgs).size !== processArgs.length) {
-    throw new ArgDuplicateError();
+  if (!processArgs.every((a) => args.includes(a))) {
+    throw new ArgInvalidError(processArgs.filter((a) => !args.includes(a)).join(', '));
   }
 };
 
