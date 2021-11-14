@@ -1,0 +1,26 @@
+{
+  "name": "ciphering-cli-tool",
+  "version": "1.0.0",
+  "description": "CLI Tool to encode and decode text using:",
+  "main": "my_ciphering_cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antowa-qq/ciphering-cli-tool.git"
+  },
+  "keywords": [
+    "cipher",
+    "cli",
+    "caesar",
+    "atbash",
+    "rot-8"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Antowa-qq/ciphering-cli-tool/issues"
+  },
+  "homepage": "https://github.com/Antowa-qq/ciphering-cli-tool#readme"
+}
