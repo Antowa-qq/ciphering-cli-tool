@@ -15,12 +15,14 @@ const validateConfig = (config) => {
       throw new IncorrectConfigError();
     }
   }
+  return config;
 };
 
 const validateFileExist = (filePath) => {
   if (!fs.existsSync(filePath) && filePath !== null) {
     throw new FileError(filePath);
   }
+  return filePath;
 };
 
 const validateArgs = () => {
