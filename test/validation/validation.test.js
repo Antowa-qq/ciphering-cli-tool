@@ -9,7 +9,7 @@ const {
   ArgDuplicateError,
 } = require('../../utils/Errors');
 
-const mockValidateArgs = jest.fn(validateArgs);
+const mockValidateConfig = jest.fn(validateConfig);
 const forEach = (items, callback) => {
   for (let index = 0; index < items.length; index++) {
     callback(items[index]);
@@ -17,6 +17,17 @@ const forEach = (items, callback) => {
 };
 
 describe('Validation', () => {
+  const confCorrect = [
+    ['C1', 'R1', 'R0', 'A'],
+    ['C1', 'A'],
+  ];
+
+  test('should value be to true', () => {
+    forEach(confCorrect, mockValidateConfig);
+    expect(mockValidateConfig.mock.results[0].value).toBe(mockValidateConfig.mock.results[0].value);
+    expect(mockValidateConfig.mock.results[1].value).toBe(mockValidateConfig.mock.results[1].value);
+  });
+
   test('Valid data transferred to the config', () => {
     const c = ['C1', 'R1', 'R0', 'A'];
     expect(validateConfig(c)).toBe(c);
