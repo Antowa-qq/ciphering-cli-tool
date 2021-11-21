@@ -1,6 +1,6 @@
 const { caesarEncode } = require('../../ciphers/caesar');
 
-describe('Cipher encrypt Caesar', () => {
+describe('Encode Caesar', () => {
   test('Only latin letters ', () => {
     let i = 'zhWAxh213!@!@#76623ыфвфы';
     let o = 'aiXByi213!@!@#76623ыфвфы';
