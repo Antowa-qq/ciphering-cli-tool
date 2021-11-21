@@ -49,6 +49,25 @@ describe('Error scenarios', () => {
 });
 
 describe('Success scenarios', () => {
+  test('should work properly if the config is correct', () => {
+    execFile(
+      'node',
+      [
+        'my_ciphering_cli',
+        '--config',
+        'A-A-R1-A-C1-C0-A-A-C0-A-C0-R0-C1-R0-R1-A-R1-R1-C0-R1-R0-C1-C1-A',
+        '-i',
+        './input.txt',
+      ],
+      (error, stdout, stderr) => {
+        if (error) {
+        } else {
+          expect(stdout).toEqual('Drsc sc combod. Wocckqo klyed "_" ciwlyv!\n');
+        }
+      },
+    );
+  });
+
   test('should be equal to result', () => {
     execFile(
       'node',
@@ -56,7 +75,7 @@ describe('Success scenarios', () => {
       (error, stdout, stderr) => {
         if (error) {
         } else {
-          expect(stdout).toEqual('Myxn xn nbdobm. Tbnnfzb ferlm "_" nhteru!');
+          expect(stdout).toEqual('Myxn xn nbdobm. Tbnnfzb ferlm "_" nhteru!\n');
         }
       },
     );
@@ -69,7 +88,7 @@ describe('Success scenarios', () => {
       (error, stdout, stderr) => {
         if (error) {
         } else {
-          expect(stdout).toEqual('Vhgw gw wkmxkv. Ckwwoik onauv "_" wqcnad!');
+          expect(stdout).toEqual('Vhgw gw wkmxkv. Ckwwoik onauv "_" wqcnad!\n');
         }
       },
     );
@@ -82,7 +101,7 @@ describe('Success scenarios', () => {
       (error, stdout, stderr) => {
         if (error) {
         } else {
-          expect(stdout).toEqual('Hvwg wg gsqfsh. Asggous opcih "_" gmapcz!');
+          expect(stdout).toEqual('Hvwg wg gsqfsh. Asggous opcih "_" gmapcz!\n');
         }
       },
     );
@@ -95,7 +114,7 @@ describe('Success scenarios', () => {
       (error, stdout, stderr) => {
         if (error) {
         } else {
-          expect(stdout).toEqual('This is secret. Message about "_" symbol!');
+          expect(stdout).toEqual('This is secret. Message about "_" symbol!\n');
         }
       },
     );

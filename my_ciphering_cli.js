@@ -6,8 +6,6 @@ const { getInput, getOutput } = require('./utils/io');
 const { validateConfig, validateFileExist, validateArgs } = require('./validation/validation');
 
 try {
-  console.log(getConfig(['-c', '--config']));
-
   validateArgs();
   validateConfig(getConfig(['-c', '--config']).split('-'));
   validateFileExist(getConfig(['-i', '--input']));
