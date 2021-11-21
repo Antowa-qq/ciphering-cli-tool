@@ -4,7 +4,8 @@
   "description": "CLI Tool to encode and decode text using:",
   "main": "my_ciphering_cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Antowa-qq/ciphering-cli-tool/issues"
   },
-  "homepage": "https://github.com/Antowa-qq/ciphering-cli-tool#readme"
+  "homepage": "https://github.com/Antowa-qq/ciphering-cli-tool#readme",
+  "dependencies": {
+    "jest": "^27.3.1"
+  }
 }
